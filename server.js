@@ -2,6 +2,7 @@ const express=require('express')
 const dotenv=require('dotenv')
 const mongoose=require('mongoose')
 const authRouter=require('./routes/auth')
+const postRouter=require('./routes/post')
 const port=process.env.PORT || 3000;
 
 const app=express();
@@ -19,6 +20,7 @@ app.use(express.json());
 
 // routes middlewares
 app.use('/api/user',authRouter);
+app.use('/api/user',postRouter);
 
 
 

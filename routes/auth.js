@@ -1,6 +1,7 @@
 const express=require('express')
 const User=require('../model/User')
 const bcrypt=require('bcryptjs')
+const jwt=require('jsonwebtoken');
 const {registerValidation,loginValidation}=require('../validation')
 const router=express.Router();
 
@@ -48,7 +49,10 @@ router.post('/login',async(req,res)=>{
     if(!validPass) return res.status(400).send('Password  is wrong')
 
 
-    res.status(201).send(" welcome to this portal")
+    //res.status(201).send(" Logged in!,welcome to this portal")
+
+    const token=jwt.sign({ _id: User._id},process.env.SECRET_KEY)
+    res.header('auth-token',token).send(token);
 
 
 });
