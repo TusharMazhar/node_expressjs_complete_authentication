@@ -1,2 +1,2 @@
-# node_expressjs_complete_authentication
+# node_expressjs_complete_authentication_API
 
